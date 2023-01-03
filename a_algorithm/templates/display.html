@@ -1,18 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <div>
-      
-      {% for value in content.values %}
-      <div>{{value}}</div>
-      {% endfor %}
 
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <form name="form" id="form" onsubmit="return false">
+    <div>
+
+      <label for="">Initial state</label>
+      {% for values in content %}
+      <div>
+        {% for val in values %}
+        <div>
+          {% for va in val %}
+          <button id="{{va}}" onclick="setValue();" value="before">{{va}}</button>
+          {% endfor %}
+          <br>
+        </div>
+        {% endfor %}
+        <br>
+      </div>
+      {% endfor %}
+      <label for="">Target state</label>
     </div>
-  </body>
+  </form>
+
+</body>
+
 </html>
